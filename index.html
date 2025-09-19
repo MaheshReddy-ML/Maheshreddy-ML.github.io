@@ -554,6 +554,86 @@
             font-weight: 500;
         }
 
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .achievement-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff);
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 245, 255, 0.2);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .achievement-icon {
+            font-size: 2rem;
+            color: #00f5ff;
+            background: rgba(0, 245, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(0, 245, 255, 0.3);
+        }
+
+        .achievement-title {
+            color: #00f5ff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .achievement-institution {
+            color: #ff00ff;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .achievement-period {
+            color: #ff00ff;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+
         /* Education Section */
         .education-grid {
             display: grid;
@@ -999,6 +1079,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -1012,6 +1093,7 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#education">Education</a>
+        <a href="#achievements">Achievements</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
@@ -1130,6 +1212,26 @@
                 <ul>
                     <li>Mathematics, Physics, Chemistry stream</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section" id="achievements">
+        <h2>Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-item">
+                <div class="achievement-header">
+                    <div class="achievement-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div>
+                        <div class="achievement-title">CS50 Introduction to Programming with Python</div>
+                        <div class="achievement-institution">Harvard University (edX)</div>
+                    </div>
+                    <div class="achievement-period">2025</div>
+                </div>
+                <p>Completed Harvard's renowned introductory programming course, mastering Python fundamentals, algorithms, and problem-solving techniques.</p>
             </div>
         </div>
     </section>
@@ -1268,10 +1370,25 @@
             </ul>
         </div>
 
-        <div class="certification">
-            <h4>CS50 Introduction to Programming with Python</h4>
-            <p>Harvard University (edX) - 2025</p>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="experience-title">Technical Blogger</div>
+                    <div>Through My Eyes AI/ML</div>
+                </div>
+                <div class="experience-period">Ongoing</div>
+            </div>
+            <ul>
+                <li>Write articles about AI/ML concepts, tutorials, and insights</li>
+                <li>Share knowledge on machine learning algorithms and implementations</li>
+                <li>Document personal projects and learning experiences</li>
+            </ul>
+            <div style="margin-top: 1.5rem; text-align: center;">
+                <a href="https://throughmyeyesaiml.blogspot.com/" class="btn btn-primary" target="_blank">📝 Visit Blog</a>
+            </div>
         </div>
+
+
 
         <div style="margin-top: 3rem;">
             <h3 style="color: #00f5ff; margin-bottom: 1rem;">Research & Publications</h3>
@@ -1417,7 +1534,7 @@
                 });
 
                 // Content elements
-                document.querySelectorAll('.about-text p, .profile-image, .skill-category, .service-card, .project-card, .education-item, .experience-item, .certification, .contact-link').forEach(el => {
+                document.querySelectorAll('.about-text p, .profile-image, .skill-category, .service-card, .project-card, .education-item, .experience-item, .achievement-item, .certification, .contact-link').forEach(el => {
                     this.observer.observe(el);
                 });
 
